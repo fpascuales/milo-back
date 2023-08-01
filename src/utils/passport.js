@@ -26,14 +26,14 @@ passport.use(
     }
   )
 );
-passport.serializeUser(function (user, cb) {
+passport.serializeUser(function (user, done) {
     process.nextTick(function () {
-      cb(null, { id: user._id, username: user.username });
+      done(null, { id: user._id, username: user.username });
     });
 });
-passport.deserializeUser(function (user, cb) {
+passport.deserializeUser(function (user, done) {
     process.nextTick(function () {
-      return cb(null, user);
+      return done(null, user);
     });
 });
 
